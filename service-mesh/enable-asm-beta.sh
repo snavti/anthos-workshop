@@ -17,5 +17,5 @@ gcloud iam service-accounts create istio-mixer --display-name istio-mixer --proj
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member=serviceAccount:istio-mixer@${PROJECT_ID}.iam.gserviceaccount.com --role=roles/contextgraph.asserter
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member=serviceAccount:istio-mixer@${PROJECT_ID}.iam.gserviceaccount.com --role=roles/logging.logWriter
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member=serviceAccount:istio-mixer@${PROJECT_ID}.iam.gserviceaccount.com --role=roles/monitoring.metricWriter
-gcloud iam service-accounts add-iam-policy-binding --role roles/iam.workloadIdentityUser --member "serviceAccount:${PROJECT_ID}.svc.id.goog[istio-system/istio-mixer-service-account]" istio-mixer@${PROJECT_ID}.iam.gserviceaccount.com
+gcloud iam service-accounts add-iam-policy-binding --role roles/iam.workloadIdentityUser --member "serviceAccount:${PROJECT_ID}.svc.id.goog[istio-system/istio-mixer]" istio-mixer@${PROJECT_ID}.iam.gserviceaccount.com
 kubectl annotate serviceaccount --namespace istio-system istio-mixer-service-account iam.gke.io/gcp-service-account=istio-mixer@${PROJECT_ID}.iam.gserviceaccount.com
